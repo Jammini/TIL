@@ -20,4 +20,5 @@
 
 ## Etc.
 - [명명규칙](https://github.com/Jammini/TIL/blob/master/etc/%EB%AA%85%EB%AA%85%EA%B7%9C%EC%B9%99.md)
+- [버전관리(Semantic Versioning)](https://github.com/Jammini/TIL/blob/master/etc/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC(Semantic%20Versioning).md)
 

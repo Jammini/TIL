@@ -133,3 +133,175 @@ public void printNullToString() {
 
 - ?를 적어주면 어떤 타입이 제네릭 타입이 되더라도 상관 없다.
 - ?로 명시한 타입을 영어로는 wildcard 타입이라고 한다.
+
+---
+
+## 22장 자바랭 다음으로 많이 쓰는 애들은 컬렉션 - Part1(List)
+
+### 자바 컬렉션
+
+자바에서의 데이터를 담는 구조는 크게 다음과 같이 분류할 수 있다.
+
+- 순서가 있는 목록(List) 형 - Collection 인터페이스 구현
+- 순서가 중요하지 않은 셋(Set) 형 - Collection 인터페이스 구현
+- 먼저 들어온 것이 먼저 나가는 큐(Queue) 형 - Collection 인터페이스 구현
+- 키-값(key-value)으로 저장되는 맵(Map) 형
+
+![자바의 컬렉션](https://user-images.githubusercontent.com/59176149/219383356-cfadd6b7-a36f-4106-99c6-d5bf46b0fc69.png)
+
+자바의 컬렉션
+
+```java
+public interface Collection<E> extends Iterable<E>
+```
+
+위 와 같이 Collection 인터페이스 선언문에서는 특이한 것은 Iterable<E>이라는 인터페이스를 확장(extends) 했다는 점.
+
+Iterable 인터페이스에 선언된어 있는 메소드는 단지 하나다
+
+| 리턴타입 | 메소드 이름 및 매개변수 |
+| --- | --- |
+| Iterator<T> | iterator() |
+
+- Iterator라는 인터페이스
+    - 추가 데이터가 있는지 확인하는 hasNext() 메소드
+    - 현재 위치를 다음 요소로 넘기고 그 값을 리턴해주는 next() 메소드
+    - 데이터를 삭제하는 remove() 메소드가 있다.
+
+결론적으로, Collection 인터페이스가 Iterable 인터페이스를 확장했다는 의미는, Iterator 인터페이스를 사용하여 데이터를 순차적으로 가져올 수 있다는 의미.
+
+### List 인터페이스와 그 동생들
+
+- List 인터페스를 구현한 클래스(java.util 패키지에서는 ArrayList, Vector, Stack, LinkedList) 중 ArrayList와 Vectort 는 클래스의 사용법은 동일하고 기능도 거의 비슷하다.
+
+| Vector | ArrayList | Stack |
+| --- | --- | --- |
+| 확장 가능한 배열 | 확장 가능한 배열 | Vector 클래스 확장하여 만든 클래스 |
+| JDK 1.0 부터 존재 | JDK 1.2 부터 추가 | LIFO 를 지원하기 위해 만들어짐. |
+| Thread Safe 하다 | Thread Safe 하지 않다 |  |
+
+### ArrayList에 대해서 파헤쳐보자
+
+![Untitled](https://user-images.githubusercontent.com/59176149/219384011-59e6d4d6-6b8e-4a5e-af3c-f344a5f58319.png)
+
+- 상속구조를 보면 Object, AbstractCollection, AbstractList 순으로 확장했다. Object를 제외한 나머지 부모클래스들의 이름 앞에서는 Abstact이 붙어 있다. 즉 이 클래스들은 abstract 클래스다.
+- 간단히 말하면 일반 클래스와 비슷하지만, 몇몇 메소드는 자식에서 구현하라고 abstract로 선언한 메소드들이 있는 클래스를 말한다. 따라서, AbstractCollection은 Collection 인터페이스 중 일부 공통적인 메소드를 구현해 놓은 것으로 기억하자.
+
+| 인터페이스 | 용도 |
+| --- | --- |
+| Serializable | 원격으로 객체를 전송하거나. 파일에 저장할 수 있음을 지정 |
+| Cloneable | Object 클래스의 clone() 메소드가 제대로 수행될 수 있음을 지정.
+즉, 복제가 가능한 객체임을 의미한다. |
+| Iterable<E> | 객체가 “foreach” 문장을 사용할 수 있음을 지정 |
+| Collection<E> | 여러 개의 객체를 하나의 객체에 담아 처리할 때의 메소드 지정 |
+| List<E> | 목록형 데이터에 보다 빠르게 접근할 수 있도록 임의로 접근하는 알고리즘이 적용된다는 것을 지정 |
+
+### ArrayList의 생성자는 3개다
+
+- ArrayList는 “확장 가능한 배열” 이다. 따라서, 배열처럼 사용하지만 대괄호는 사용하지 않고, 메소드를 통해서 객체를 넣고, 빼고, 조회한다.
+
+
+| 생성자 | 설명 |
+| --- | --- |
+| ArrayList() | 객체를 저장할 공간이 10개인 ArrayList를 만든다. |
+| ArrayList(Collection<? extends E> c | 매개 변수로 넘어온 컬렉션 객체가 저장되어 있는 ArrayList를 만든다. |
+| arrayList(int initialCapacity) | 매개 변수로 넘어온 initalCapacity 개수만큼의 저장 공간을 갖는 ArrayList를 만든다. |
+
+
+```java
+ArrayLisy<String list1 = new ArrayList<String>();
+// JDK 7부터 생성자를 호출하는 부분(new 뒤에 있는 부분)에 따로 타입을 적지 않고 <>로만 사용해도 된다.
+ArrayLisy<String list1 = new ArrayList<>(); 
+```
+
+### ArrayList에 데이터를 담아보자
+
+| 리턴 타입 | 메소드 이름 및 매개 변수 | 설명 |
+| --- | --- | --- |
+| boolean | add(E e) | 매개 변수로 넘어온 데이터를 가장 끝에 담는다. |
+| void | add(int index, E e) | 매개 변수로 넘어온 데이터를 지정된 index 위치에 담는다. |
+| boolean | addAll(Collection<? extends E> c) | 매개 변수로 넘어온 컬렉션 데이터를 가장 끝에 담는다. |
+| boolean | addAll(int index, Collection<? extends E> c | 매개 변수로 넘어온 컬렉션 데이터를 index에 지정된 위치부터 담는다. |
+
+```java
+public void checkArrayList4() {
+	ArrayList<String> list = new ArrayList<String>();
+	list.add("A");
+	
+	ArrayList<String> list2 = list; // 값만 사용하겠다는게 아닌 list라는 객체가 생성되서 참조되고 있는 주소까지 사용
+	list.add("Ooops");
+	for(String tempData:list2) {
+		System.out.println("List2 " + tempData);
+	}
+}
+// List2 A
+// List2 Ooops
+```
+
+- list2 = list1 과 같이 다른 객체에 원본 객체의 주소 값만을 할당을 하는 것을 **Shallow copy** 이다.
+- 객체의 모든 값을 복사하여 복제된 객체에 있는 값을 변경해도 원본에 영향이 없도록 할 때는 **Deep copy** 수행
+- 예를 들어 배열을 복사할때 System 클래스에 있는 arraycopy()와 같은 메소드를 이용하면 Deep copy를 쉽게 처리 할수 있다.
+- 따라서, 하나의 Collection 관련 객체를 복사할 일이 있을 때에는 이와 같이 생성자를 사용하거나 addAll() 메소드를 사용할 것은 권장.
+
+### ArrayList에서 데이터를 꺼내자
+
+| 리턴타입 | 메소드 이름 및 매개변수 | 설명 |
+| --- | --- | --- |
+| Object[] | toArray() | ArrayList 객체에 있는 값들을 Object[] 타입의 배열로 만든다 |
+| <T> T[] | toArray(T[] a) | ArrayList 객체에 있는 값들을 매개 변수로 넘어온 T 타입의 배열로 만든다. |
+
+```java
+public void checkArrayList6() {
+	ArrayList<String> list = new ArrayList<String>();
+	list.add("A");
+	String[] strList = list.toArray(new String[0]);
+	System.out.println(strList[0]);
+}
+```
+
+```java
+public void checkArrayList7() {
+	ArrayList<String> list = new ArrayList<String>();
+	list.add("A");
+	list.add("B");
+	list.add("C");
+  // tempArray라는 공간에 5개 있는 String 배열 객체를 생성하여 toArray() 메소드의 매개변수로 넘겼다.
+	String[] tempArray = new String[3]; 
+	// toArray() 메소드의 리턴값을 할당한 strList라는 String 배열에는 list 객체의 데이터 개수 만큼 데이터가 들어가 있다.
+	String[] strList = list.toArray(tempArray); 
+	for(String temp:strList) {
+		System.out.println(temp);
+	}
+	// A
+	// B
+	// C
+}
+```
+
+### ArrayList에 있는 데이터를 삭제하자
+
+| 리턴타입 | 메소드 이름 및 매개변수 | 설명 |
+| --- | --- | --- |
+| void | clear() | 모든 데이터를 삭제한다. |
+| E | remove(int index) | 매개 변수에서 지정한 위치에 있는 데이터를 삭제하고, 삭제한 데이터를 리턴 |
+| boolean | remove(Object o) | 매개 변수에 넘어온 객체와 동일한 첫 번째 데이터를 삭제한다. |
+| boolean | removeAll(Collection<?> c | 매개 변수로 넘어온 컬렉션 객체이 있는 데이터와 동일한 모든 데이터를 삭제 |
+
+| 리턴타입 | 메소드 이름 및 매개변수 | 설명 |
+| --- | --- | --- |
+| E | set(int index, E element) | 지정한 위치에 있는 데이터를 두번째 매개 변수로 넘긴 값으로 변경. 그리고 해당 위치에 있던 데이터 리턴 |
+
+
+### Stack 클래스는 뭐가 다른데?
+
+- List 인터페이스를 구현한 또 하나의 클래스인 Stack 클래스에 대해서 살펴보자.
+- LIFO 기능을 구현하려고 할 때 필요한 클래스.
+
+| 리턴타입 | 메소드 이름 및 매개변수 | 설명 |
+| --- | --- | --- |
+| boolean | empty() | 객체가 비어있는지를 확인 |
+| E | peek() | 객체의 가장 위에 있는 데이터를 리턴 |
+| E | pop() | 객체의 가장 위에 있는 데이터를 지우고, 리턴 |
+| E | push(E item) | 매개변수로 넘어온 데이터를 가장 위에 저장 |
+| int | search(Object o) | 매개변수로 넘어온 데이터의 위치 리턴 |
+

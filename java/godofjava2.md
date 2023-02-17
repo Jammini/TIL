@@ -305,3 +305,70 @@ public void checkArrayList7() {
 | E | push(E item) | 매개변수로 넘어온 데이터를 가장 위에 저장 |
 | int | search(Object o) | 매개변수로 넘어온 데이터의 위치 리턴 |
 
+## 23장 자바랭 다음으로 많이 쓰는 애들은 컬렉션 - Part2(Set과 Queue)
+
+### Set이 왜 필요하지?
+
+- Set은 순서에 상관없이 어떤 데이터가 존재하는지를 확인하기 위한 용도로 많이 사용.
+- 중복되는 것을 방지하고, 원하는 값이 포함되어 있는지를 확인하는 것이 주요 용도.
+
+| HashSet | 순서가 전혀 필요 없는 데이터를 해시 테이블에 저장한다. Set중에 가장 성능이 좋다. |
+| --- | --- |
+| TreeSet | 저장된 데이터의 값에 따라서 정렬되는 셋이다. red-black이라는 트리 타입으로 값이 저장되며, HashSet 보다 약간 서능이 느리다. |
+| LinkedHashSet | 연결된 목록 타입으로 구현된 해시테이블에 데이터를 저장한다. 저장된 순서에 따라서 값이 정렬된다. 대신 성능이 이 셋중에서 가장 나쁘다. |
+
+### HashSet에 대해서 파헤쳐 보자
+
+![Untitled](https://user-images.githubusercontent.com/59176149/219682939-25e61ae9-0e03-4f3b-9f91-91ffa5be13a9.png)
+
+### HashSet의 생성자들도 여러 종류가 있다
+
+| 생성자 | 설명 |
+| --- | --- |
+| HashSet() | 데이터를 저장할 수 있는 16개의 공간과 0.75의 로드 팩터를 갖는 객체를 생성 |
+| HashSet(Collection<? extends E> c) | 매개변수로 받은 컬렉션 객체의 데이터를 HashSet에 담는다 |
+| HashSet(int initialCapacity | 매개변수로 받은 개수만큼의 데이터 저장 공간과 0.75의 로드팩터를 갖는 객체를 생성. |
+| HashSet(int initialCapacity, float loadFactor) | 첫 매개 변수로 받은 개수만큼의 데이터 저장 공간과 두 번째 매개변수로 받은 만큼의 로드 팩터를 갖는 객체를 생성 |
+- 로드팩터 : (데이터의 개수)/(저장 공간)을 의미
+    - 만약 데이터의 개수가 증가하여 로드팩터보다 커지만, 저장 공간의 크기는 증가되고 해시 재정리 작업을 해야만 한다.
+    - 로드팩터라는 값이 클수록 공간은 넉넉해지지만, 데이터를 찾는 시간은 증가한다.
+
+### HashSet의 중요 메소드를 살펴보자
+
+| 리턴 타입 | 메소드 이름 및 매개 변수 | 설명 |
+| --- | --- | --- |
+| boolean | add(E e) | 데이터를 추가한다. |
+| void | clear() | 모든 데이터를 삭제한다. |
+| Object | clone() | HashSet 객체를 복제한다. 하지만, 담겨 있는 데이터들은 복제하지 않는다. |
+| boolean | contains(Object o) | 지정한 객체가 존재하는지를 확인한다. |
+| boolean | isEmpty() | 데이터가 있는지 확인한다. |
+| Iterator<E> | iterator() | 데이터를 꺼내기 위한 Iterator 객체를 리턴한다. |
+| boolean | remove(Object o) | 매개 변수로 넘어온 객체를 삭제한다. |
+| int | size() | 데이터의 개수를 리턴한다. |
+
+### Queue는 왜 필요할까?
+
+- 배열의 경우 중간에 있는 데이터가 삭제되거나 추가 될 경우 LinkedList가 배열보다 메모리 공간 측면에서 훨씬 유리하다.
+    - 이유는 간단하다. 배열은 각 위치가 정해져있고 그 위치로 데이터를 찾는다. 값을 삭제하면 그 값들을 앞으로 위치를 이동해야 제대로된 값을 가져 올 수 있을것이다.
+    - 반면 LinkedList는 중간에 ㅇ맀는 데이터를 삭제하면 지운 데이터의 앞에 있는 데이터와 뒤에 있는 데이터를 연결하면 끝이다.
+- LinkedList는 가장 쉽게 이해하려면 열차를 생각하면 된다.
+    - LinkedList에 A라는 하나의 값이 추가되면 열차의 맨 앞칸에 데이터를 집어 넣는다.
+    - B라는 데이터를 집어 넣게 되면 가장 앞에 있는 값은 A가되고 맨뒤는 B가 된다.
+- FIFO 구조를 가지며 보통 웹서버 100명의 사용자가 요청을 했다고 가정할때 순차적으로 처리해준다 생각하자.
+- Java6에서 추가된 Deque(Double Ended Queue)는 Queue의 기능을 전부 포함한다. 맨앞에 값을 넣어가 뺴는 작업, 맨뒤에 값을 넣거나 뺴는 작업을 수행하는데 용이하다.
+
+### LinkedList를 파헤쳐보자
+
+![Untitled](https://user-images.githubusercontent.com/59176149/219683088-9616e33f-e258-4b99-bd57-0f7762c59bfb.png)
+
+### LinkedList의 생성자와 주요 메소드를 살펴보자
+
+LinkedList 객체를 하나씩 검색하기 위한 Iterator 객체를 보자
+
+| 리턴타입 | 메소드 이름 및 매개변수 | 설명 |
+| --- | --- | --- |
+| ListIterator | listIterator(int) | 매개 변수에 지정된 위치부터의 데이터를 검색하기 위한 ListIterator 객체 리턴 |
+| Iterator | descendingIterator() | LinkedList의 데이터를 끝에서 부터 검색하기 위한 Iterator 객체를 리턴 |
+
+ListIterator는 Iterator 인터페이스가 다음 데이터만을 검색할 수 있다는 단점을 보완하여, 이전 데이터도 검색할 수 있는 이터페이터다. 따라서 next() 외에도 previous() 메소드를 사용하면 이전 데이터 확인이 가능하다.
+

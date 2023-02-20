@@ -11,6 +11,7 @@
 
 
 ## java
+- [Short-circuit이 런타임 오류를 방지해준다?](https://github.com/Jammini/TIL/blob/master/java/shortcircuit.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)
 - [자바의신 vol2](https://github.com/Jammini/TIL/blob/master/java/godofjava2.md)
 

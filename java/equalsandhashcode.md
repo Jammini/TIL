@@ -21,9 +21,9 @@ Object 클래스에는 `equals()`와 `hashCode()`라는 메소드가 선언되�
 
 ```java
 public class Object {
-		public boolean equals(Object obj) {
+	public boolean equals(Object obj) {
         return (this == obj);
-	  }
+	}
 }
 ```
 
@@ -34,7 +34,7 @@ public class Object {
 
 ```java
 public class Object {
-		public native int hashCode();
+	public native int hashCode();
 }
 ```
 
@@ -132,7 +132,7 @@ public class Member {
         return Objects.equals(name, member.name);
     }
 
-		@Override
+	@Override
     public int hashCode() {
         return Objects.hash(name);
     }

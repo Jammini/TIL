@@ -122,39 +122,39 @@ method
 ```java
 public class SupplierExamples {
 
-		/**
+    /**
      * 실행하면 항상 3초가 걸려요.
      */
-		private static String getVeryExpensiveValue() {
-		    try {
-		        TimeUnit.SECONDS.sleep(3);
-		    } catch (InterruptedException e) {
-		        e.printStackTrace();
-		    }
-		    return "Jammini";
-		}
-		/**
+    private static String getVeryExpensiveValue() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "Jammini";
+    }
+    /**
      * number에 조건식에 따라 출력문이 달라짐.
      */
-		private static void printIfValidIndex(final int number, final String value) {
-		    if (number >= 0) {
-		        System.out.println("The value is " + value + ".");
-		    } else {
-		        System.out.println("Invalid");
-		    }
-		}
+    private static void printIfValidIndex(final int number, final String value) {
+        if (number >= 0) {
+            System.out.println("The value is " + value + ".");
+        } else {
+            System.out.println("Invalid");
+        }
+    }
 
-		private static void callingExpensiveMethodWithoutSupplier() {
-		    final long start = System.currentTimeMillis();
-		    printIfValidIndex(0, getVeryExpensiveValue());
-		    printIfValidIndex(-1, getVeryExpensiveValue());
-		    printIfValidIndex(-2, getVeryExpensiveValue());
-		    System.out.println("It took " + ((System.currentTimeMillis() - start) / 1000) + " seconds.");
-		}		
+    private static void callingExpensiveMethodWithoutSupplier() {
+        final long start = System.currentTimeMillis();
+        printIfValidIndex(0, getVeryExpensiveValue());
+        printIfValidIndex(-1, getVeryExpensiveValue());
+        printIfValidIndex(-2, getVeryExpensiveValue());
+        System.out.println("It took " + ((System.currentTimeMillis() - start) / 1000) + " seconds.");
+    }		
 		
-		public static void main(final String[] args) {
-		    callingExpensiveMethodWithoutSupplier();
-		}
+    public static void main(final String[] args) {
+        callingExpensiveMethodWithoutSupplier();
+    }
 }
 ```
 
@@ -173,21 +173,21 @@ It took 9 seconds.
 ```java
 public class SupplierExamples {
 
-		/**
+    /**
      * 실행하면 항상 3초가 걸려요.
      */
-		private static String getVeryExpensiveValue() {
-		    try {
-		        TimeUnit.SECONDS.sleep(3);
-		    } catch (InterruptedException e) {
-		        e.printStackTrace();
-		    }
-		    return "Jammini";
-		}
-		/**
+    private static String getVeryExpensiveValue() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "Jammini";
+    }
+    /**
      * number에 조건식에 따라 출력문이 달라짐.
      */
-		private static void printIfValidIndex(final int number, final Supplier<String> valueSupplier) {
+    private static void printIfValidIndex(final int number, final Supplier<String> valueSupplier) {
         if (number >= 0) {
             System.out.println("The value is " + valueSupplier.get() + ".");
         } else {
@@ -195,7 +195,7 @@ public class SupplierExamples {
         }
     }
 
-		private static void callingExpensiveMethodWithSupplier() {
+    private static void callingExpensiveMethodWithSupplier() {
         final long start = System.currentTimeMillis();
         printIfValidIndex(0, () -> getVeryExpensiveValue());
         printIfValidIndex(-1, () -> getVeryExpensiveValue());
@@ -203,9 +203,9 @@ public class SupplierExamples {
         System.out.println("It took " + ((System.currentTimeMillis() - start) / 1000) + " seconds.");
     }	
 		
-		public static void main(final String[] args) {
-		    callingExpensiveMethodWithSupplier();
-		}
+    public static void main(final String[] args) {
+        callingExpensiveMethodWithSupplier();
+    }
 }
 ```
 

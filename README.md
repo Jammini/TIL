@@ -19,6 +19,7 @@
 - [Optional – orElse() vs orElseGet()](https://github.com/Jammini/TIL/blob/master/java/orelsevsorelseget.md)
 - [상속 vs 컴포지션 - 객체 간의 관계를 나타내는 두 가지 방법](https://github.com/Jammini/TIL/blob/master/java/inheritancevscomposition.md)
 - [인터페이스 vs 추상클래스 (자바8 이후의 변화)](https://github.com/Jammini/TIL/blob/master/java/interface-vs-abstract.md)
+- [에러와 예외 (Checked exception vs Unchecked exception)](https://github.com/Jammini/TIL/blob/master/java/error-vs-exception.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)
 - [자바의신 vol2](https://github.com/Jammini/TIL/blob/master/java/godofjava2.md)
 

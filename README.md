@@ -20,6 +20,8 @@
 - [상속 vs 컴포지션 - 객체 간의 관계를 나타내는 두 가지 방법](https://github.com/Jammini/TIL/blob/master/java/inheritancevscomposition.md)
 - [인터페이스 vs 추상클래스 (자바8 이후의 변화)](https://github.com/Jammini/TIL/blob/master/java/interface-vs-abstract.md)
 - [에러와 예외 (Checked exception vs Unchecked exception)](https://github.com/Jammini/TIL/blob/master/java/error-vs-exception.md)
+- [System.out.println 메소드는 실무에서 절대 사용하지마라](https://github.com/Jammini/TIL/blob/master/java/System.out.println-%EC%A0%88%EB%8C%80-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80%EB%A7%88%EB%9D%BC.md)
+- [Logging에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/java/logging.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)
 - [자바의신 vol2](https://github.com/Jammini/TIL/blob/master/java/godofjava2.md)
 

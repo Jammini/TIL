@@ -82,10 +82,10 @@ System.out.println("hello World");를 살펴보자
 
 - 운영 시스템에서는 System.out.println을 절대 사용해서는 안된다.
 - 로그를 남기고 싶다면 로깅프레임워크를 사용하여 적절한 로그 레벨을 지정하여 출력하는 것이 좋다.
-- 로깅프레임워크에 대해 더 알아보려면 여기로 넘어와서 보자.
+- 로깅프레임워크에 대해 더 알아보려면 [여기](https://github.com/Jammini/TIL/blob/master/java/logging.md)로 넘어와서 보자.
 
 ### 참고
-
+- [https://github.com/Jammini/TIL/blob/master/java/logging.md](https://github.com/Jammini/TIL/blob/master/java/logging.md)
 - [https://examples.javacodegeeks.com/java-development/core-java/lang/system/out/logging-system-println-results-log-file-example/](https://examples.javacodegeeks.com/java-development/core-java/lang/system/out/logging-system-println-results-log-file-example/)
 - [https://code-run.tistory.com/8#2.1. Reference](https://code-run.tistory.com/8#2.1.%20Reference%C2%A0)
 - [https://hudi.blog/do-not-use-system-out-println-for-logging/](https://hudi.blog/do-not-use-system-out-println-for-logging/)

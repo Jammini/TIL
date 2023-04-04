@@ -28,6 +28,7 @@
 - [자바의 IO와 (New)NIO란?](https://github.com/Jammini/TIL/blob/master/java/IO_NIO.md)
 - [try-with-resources로 쉽게 자원해제하기](https://github.com/Jammini/TIL/blob/master/java/try_with_resources.md)
 - [자바8에 추가된 Stream에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/java/stream.md)
+- [ParallelStream은 항상 Stream보다 성능이 좋을까?](https://github.com/Jammini/TIL/blob/master/java/parallelstream.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)
 - [자바의신 vol2](https://github.com/Jammini/TIL/blob/master/java/godofjava2.md)
 

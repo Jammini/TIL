@@ -37,6 +37,7 @@
 - [모든 개발자를 위한 HTTP 웹 기본 지식](https://github.com/Jammini/TIL/blob/master/network/%EB%AA%A8%EB%93%A0%20%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC%20%EC%9C%84%ED%95%9C%20HTTP%20%EC%9B%B9%20%EA%B8%B0%EB%B3%B8%20%EC%A7%80%EC%8B%9D.md)
 - [HTTP 상태 코드를 알아보자](https://github.com/Jammini/TIL/blob/master/network/httpstatuscode.md)
 - [OAuth2.0 개념과 동작에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/network/OAuth2.md)
+- [인증(Authentication)과 인가(Authorization)](https://github.com/Jammini/TIL/blob/master/network/authentication_authorization.md)
 
 ## book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)

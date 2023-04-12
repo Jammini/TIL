@@ -39,6 +39,7 @@
 - [HTTP 상태 코드를 알아보자](https://github.com/Jammini/TIL/blob/master/network/httpstatuscode.md)
 - [OAuth2.0 개념과 동작에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/network/OAuth2.md)
 - [인증(Authentication)과 인가(Authorization)](https://github.com/Jammini/TIL/blob/master/network/authentication_authorization.md)
+- [JWT(JSON Web Token)란?](https://github.com/Jammini/TIL/blob/master/network/jwt.md)
 
 ## book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)

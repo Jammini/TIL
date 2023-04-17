@@ -8,7 +8,7 @@
 - [객체 지향 설계와 스프링](https://github.com/Jammini/TIL/blob/master/spring/%EA%B0%9D%EC%B2%B4%20%EC%A7%80%ED%96%A5%20%EC%84%A4%EA%B3%84%EC%99%80%20%EC%8A%A4%ED%94%84%EB%A7%81.md)
 - [스프링 핵심 원리 - 기본편](https://github.com/Jammini/spring-core-principles)
 - [Web Server vs WAS](https://www.notion.so/Web-Server-vs-WAS-54fa226a134a4a3f84ce715b8119d5c1)
-
+- [Maven vs Gradle](https://github.com/Jammini/TIL/blob/master/spring/mavenvsgradle.md)
 
 ## java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)

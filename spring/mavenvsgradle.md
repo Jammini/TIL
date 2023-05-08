@@ -112,6 +112,7 @@ tasks.named('test') {
 - gradle이 maven보다 속도면에서 우수하다고 하는 주장([https://gradle.org/gradle-vs-maven-performance/](https://gradle.org/gradle-vs-maven-performance/))
 실제로 성능상 이점을 발견한 사례가 있다면 추후에 내용을 추가하도록 하자.
 - 앞서 봤듯이, gradle의 성능적 주장과 프로젝트의 빌드 속도, 스크립트의 길이, 설정 주입 방식 등을 고려했을때 Gradle의 사용을 고려할 것이다.
+- 추가적으로, gradle같은 경우는 코틀린DSL이나 그루비 같은 선언형 언어를 사용하기 때문에 maven보다 조금 더 유연하고 함수 같은걸 선언해 재사용함으로써 보일러플레이트 코드를 줄이는데 도움을 줄 수도 있다.
 
 ### 참고
 

@@ -50,8 +50,8 @@
 - [JWT(JSON Web Token)란?](https://github.com/Jammini/TIL/blob/master/network/jwt.md)
 - [세션불일치 현상은 무엇이고 어떤 방법으로 해결할 수 있을까?](https://github.com/Jammini/TIL/blob/master/network/session_%20inconsistency.md)
 
-## 데이터베이스
-- []
+## DB
+- [트랜잭션이 만족해야 하는 ACID](https://github.com/Jammini/TIL/blob/master/db/transaction_acid.md)
 
 ## book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)

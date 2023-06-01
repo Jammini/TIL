@@ -52,7 +52,7 @@
 
 ## DB
 - [트랜잭션이 만족해야 하는 ACID](https://github.com/Jammini/TIL/blob/master/db/transaction_acid.md)
-
+- [트랜잭션 Isolation level](https://github.com/Jammini/TIL/blob/master/db/transaction_isolation.md)
 ## book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)
 

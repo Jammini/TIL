@@ -12,6 +12,7 @@
 - [테스트코드는 무엇이고 왜 작성해야 할까요?](https://github.com/Jammini/TIL/blob/master/spring/what_is_test.md)
 - [단위테스트 vs 통합테스트 vs 인수테스트](https://github.com/Jammini/TIL/blob/master/spring/categories_of_test.md)
 - [spring boot의 가장 큰 장점 Auto Configuration이란? 동작 방식은?](https://github.com/Jammini/TIL/blob/master/spring/autoconfiguration.md)
+- [서블릿(Servelet)이란?](https://github.com/Jammini/TIL/blob/master/spring/servlet.md)
 
 ## java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)

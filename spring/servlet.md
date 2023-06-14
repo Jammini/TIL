@@ -7,7 +7,8 @@
 3. [서블릿 동작방식](#3-서블릿-동작방식)
 4. [서블릿 컨테이너](#4-서블릿-컨테이너)
 5. [동시요청 - 멀티쓰레드](#5-동시요청---멀티쓰레드)
-6. [결론](#6-결론)
+6. [서블릿 생명주기(Servlet LifeCycle)](#6-서블릿-생명주기servlet-lifecycle)
+7. [결론](#7-결론)
 
 ### 1. 서블릿(Servlet)이란?
 
@@ -61,7 +62,57 @@
 
 그래서 위와 같이 쓰레드를 미리 만들어 **쓰레드 풀에 보관하고 관리**해야 한다. 쓰레드가 필요하면 이미 생성되어 있는 쓰레드를 꺼내 사용하고 종료하면 다시 쓰레드 풀에 반납하는 형태이다.
 
-### 6. 결론
+### 6. 서블릿 생명주기(Servlet LifeCycle)
+
+1. 먼저 WAS는 클라이언트로부터 서블릿 요청을 받으면 해당 서블릿이 메모리에 있는지 확인한다.
+
+2-1. **(만약 해당 서블릿이 처음실행되어 메모리에 없다면)** 서블릿 클래스를 메모리에 올리고 init() 메소드와 service() 메소드를 실행한다.
+
+2-2. **(만약 해당 서블릿이 메모리에 있다면)** service() 메소드를 실행한다.
+
+3. WAS가 종료되거나 웹 어플리케이션이 갱신되어 서블릿 종료 요청이 있을 경우 destroy() 메소드를 실행한다.
+
+<img width="719" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/ca6c4035-d906-4413-a77a-8f3ebb48e21f">
+
+```jsx
+@WebServlet("/ServletLifeCycle")
+public class ServletLifeCycle extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public ServletLifeCycle() {
+        super();
+        System.out.println("ServletLifeCycle 생성자 실행");
+    }
+
+	public void init(ServletConfig config) throws ServletException {
+		System.out.println("init() 실행");
+	}
+
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+    						throws ServletException, IOException {
+		System.out.println("service() 실행");
+		super.service(request, response);
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    						throws ServletException, IOException {
+		System.out.println("doGet() 실행");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    						throws ServletException, IOException {
+		System.out.println("doPost() 실행");
+	}
+	
+	public void destroy() {
+		System.out.println("destroy() 실행");
+	}
+}
+```
+
+<img width="716" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/7b03c558-a43e-4875-94b6-00f813d606b8">
+
+### 7. 결론
 
 - 멀티쓰레드에 대한 부분은 서블릿 컨테이너(WAS)가 처리하여 개발자는 멀티쓰레드 관련 코드를 신경쓰지 않아도 된다는 장점이 생긴다.
 - 개발자는 마치 싱글 쓰레드 프로그래밍을 하듯이 편리하게 소스코드를 개발할 수 있지만, 어쨋든 멀티쓰레드 환경이므로 싱글톤 객체에서의 공유변수들은 항상 조심해서 사용해야 한다.
@@ -70,3 +121,4 @@
 
 - https://dding9code.tistory.com/41
 - https://www.youtube.com/watch?v=2pBsXI01J6M
+- https://kadosholy.tistory.com/47

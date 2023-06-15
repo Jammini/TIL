@@ -31,8 +31,11 @@
 - ‘#’과 ‘$’의 선택은 주어진 상황과 사용 목적에 따라 적절히 사용해야 한다.
 - 일반적으로 매개 변수나 사용자 입력과 같이 외부로 받은 값은 ‘#’을 사용하여 안전하게 처리하는 것이 좋다.
 - 반면, 정적인 값을 직접 SQL에 삽입해야 할 경우 ‘$’을 사용할 수 있으나 SQL인젝션과 같은 보안 취약점에 노출되지 않도록 검증과 필터링을 걸쳐야한다.
+- Statement와 PreparedStatement에 대해 자세히 알아보고 싶다면 아래 링크를 통해 살펴보자.
+    - https://github.com/Jammini/TIL/blob/master/java/statement_vs_preparedStatement.md
 
 ### 참고
 
 - [https://grandma-coding.tistory.com/entry/MyBatis-와-의-차이점](https://grandma-coding.tistory.com/entry/MyBatis-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
 - https://mine-it-record.tistory.com/300
+- 

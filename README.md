@@ -61,6 +61,7 @@
 - [낙관적인 락 vs 비관적인 락](https://github.com/Jammini/TIL/blob/master/db/lock.md)
 - [MYSQL SELECT FOR UPDATE](https://github.com/Jammini/TIL/blob/master/db/mysql_selectforupodate.md)
 - [MySQL Index에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/db/mysql_index.md)
+- [Redis란?](https://github.com/Jammini/TIL/blob/master/db/redis.md)
 
 ## book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)

@@ -44,9 +44,9 @@ my.servers[1]=another.example.com
 
 ```yaml
 spring:
-	h2:
-		console:
-			path: /h2-console
+    h2:
+	    console:
+            path: /h2-console
     datasource:
         url: jdbc:h2:~/test
         driverClassName: org.h2.Driver

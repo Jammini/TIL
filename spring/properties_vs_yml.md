@@ -45,7 +45,7 @@ my.servers[1]=another.example.com
 ```yaml
 spring:
     h2:
-	    console:
+        console:
             path: /h2-console
     datasource:
         url: jdbc:h2:~/test

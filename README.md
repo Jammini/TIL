@@ -45,6 +45,7 @@
 - [Statement vs PreparedStatement](https://github.com/Jammini/TIL/blob/master/java/statement_vs_preparedStatement.md)
 - [멀티프로세스 vs 멀티스레드](https://github.com/Jammini/TIL/blob/master/java/multiprocess_vs_multithread.md)
 - [어댑터패턴(Adapter Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/adapterpattern.md)
+- [프록시패턴(Proxy Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/proxypattern.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)
 - [자바의신 vol2](https://github.com/Jammini/TIL/blob/master/java/godofjava2.md)
 

@@ -17,6 +17,7 @@
 - [필터(filter) vs 인터셉터(interceptor)](https://github.com/Jammini/TIL/blob/master/spring/filter_vs_interceptor.md)
 - [properteis vs yml](https://github.com/Jammini/TIL/blob/master/spring/properties_vs_yml.md)
 - [스프링 AOP(Aspect Oriented Programming)](https://github.com/Jammini/TIL/blob/master/spring/aop.md)
+- [생성자주입을 선택해라!](https://github.com/Jammini/TIL/blob/master/spring/constructor_injection.md)
 
 ## java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)

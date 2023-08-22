@@ -17,6 +17,8 @@
 - [필터(filter) vs 인터셉터(interceptor)](https://github.com/Jammini/TIL/blob/master/spring/filter_vs_interceptor.md)
 - [properteis vs yml](https://github.com/Jammini/TIL/blob/master/spring/properties_vs_yml.md)
 - [스프링 AOP(Aspect Oriented Programming)](https://github.com/Jammini/TIL/blob/master/spring/aop.md)
+- [생성자주입을 선택해라!](https://github.com/Jammini/TIL/blob/master/spring/constructor_injection.md)
+- [상태검증 vs 행위 검증](https://github.com/Jammini/TIL/blob/master/spring/behavior_%20verification.md)
 
 ## java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)
@@ -47,6 +49,7 @@
 - [어댑터패턴(Adapter Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/adapterpattern.md)
 - [프록시패턴(Proxy Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/proxypattern.md)
 - [데코레이터패턴(Decorator Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/decoratorpattern.md)
+- [Java 에서 싱글톤패턴 구현방식](https://github.com/Jammini/TIL/blob/master/java/singleton.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)
 - [자바의신 vol2](https://github.com/Jammini/TIL/blob/master/java/godofjava2.md)
 

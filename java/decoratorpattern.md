@@ -7,6 +7,7 @@
 3. [패턴 적용하기](#3-패턴-적용하기)
 4. [장점과 단점](#4-장점과-단점)
 5. [자바와 스프링에서 찾아보는 패턴](#5-자바와-스프링에서-찾아보는-패턴)
+6. [프록시 패턴과 데코레이터 패턴](#6-프록시-패턴과-데코레이터-패턴)
 
 ## 1. 데코레이터패턴(Decorator Pattern)이란?
 
@@ -171,6 +172,13 @@ public class SpamFilteringCommentDecorator extends CommentDecorator {
 - java.util.Collections가 제공하는 메소드들 활용한 랩퍼
     - java.util.Collections의 checkedXXX(), synchronizedXXX(), unmodifiableXXX() 메서드들
 - javax.servlet.http.HttpServletRequestWrapper 그리고 HttpServletResponseWrapper
+
+## 6. 프록시 패턴과 데코레이터 패턴
+
+- 두 패턴 모두 프록시를 사용하는 방법이다.
+- 하지만 GOF 디자인 패턴에서는 이 둘을 의도(Intent)에 따라서 구분한다.
+    - [프록시 패턴](https://github.com/Jammini/TIL/blob/master/java/proxypattern.md) : 접근 제어가 목적
+    - 데코레이터 패턴 : 새로운 기능 추가가 목적
 
 ### 참고
 

@@ -73,6 +73,8 @@
 - [Redis란?](https://github.com/Jammini/TIL/blob/master/db/redis.md)
 - [공유 락(shared lock) vs 배타 락(exclusive lock)](https://github.com/Jammini/TIL/blob/master/db/sharedlock_vs_exclusivelock.md)
 - [MySQL 실행계획이란?](https://github.com/Jammini/TIL/blob/master/db/mysql_queryplan.md)
+- [SELECT * 을 쓰면 안되는 이유](https://github.com/Jammini/TIL/blob/master/db/don't_use_select*.md)
+
 
 ## book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)

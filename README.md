@@ -23,6 +23,7 @@
 - [객체의 종류](https://github.com/Jammini/TIL/blob/master/spring/typeofobject.md)
 - [@Transactional에 대해서 알아보자](https://github.com/Jammini/TIL/blob/master/spring/transactional.md)
 - [Junit5은 무엇일까?](https://github.com/Jammini/TIL/blob/master/spring/JUnit5.md)
+- [객체의 결합도와 응집도](https://github.com/Jammini/TIL/blob/master/spring/coupling_cohesion.md)
 
 ## java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)

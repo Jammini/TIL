@@ -89,4 +89,4 @@
 - [명명규칙](https://github.com/Jammini/TIL/blob/master/etc/%EB%AA%85%EB%AA%85%EA%B7%9C%EC%B9%99.md)
 - [버전관리(Semantic Versioning)](https://github.com/Jammini/TIL/blob/master/etc/%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC(Semantic%20Versioning).md)
 - [코딩으로 학습하는 리팩토링](https://github.com/Jammini/TIL/blob/master/etc/%EC%BD%94%EB%94%A9%EC%9C%BC%EB%A1%9C%20%ED%95%99%EC%8A%B5%ED%95%98%EB%8A%94%20%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81.md)
-
+- [라이브러리 vs 프레임워크](https://github.com/Jammini/TIL/blob/master/etc/framework_library.md)

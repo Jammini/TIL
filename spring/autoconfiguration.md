@@ -51,6 +51,8 @@
 
 `@EnableAutoConfiguraion`이 AutoConfiguration을 활성화 하는 기능이 된다.
 
+Spring Boot의 meta 파일`(spring-boot-autoconfigure/META-INF/spring.factories)`을 읽어서 미리 정의 되어있는 자바 설정 파일`(@Configuration)`들을 빈으로 등록하는 역할을 수행 한다
+
 여기서 `@Import` 는 스프링 설정정보를 포함할때 사용하는데 `AutoConfigurationImportSelector`를 봐보자. 
 
 ### 4. AutoConfigurationImportSelector

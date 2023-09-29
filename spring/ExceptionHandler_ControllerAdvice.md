@@ -166,6 +166,98 @@ public class ExampleAdvice3 {}
 
 https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-ann-controller-advice (스프링 공식 문서 참고)
 
+### 4-1. 내부 동작방식
+
+인터페이스인 `@ControllerAdvice`와 `@RestConrollerAdvice`어떻게 도작할까?
+
+**스프링의 동작방식**
+
+<img width="704" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/a35a0120-6099-44ad-afb6-6579b4d58705">
+
+1. 클라이언트는 URL 주소를 통해 서버에 요청을 보낸다.
+2. 클라이언트의 요청이 Dispatcher Servlet으로 들어오고,
+3. Dispatcher Servlet은 요청과 매핑되는 컨트롤러를 찾아서
+    - 컨트롤러들에 대한 정보를 갖고 있는 HandlerMapping 에서 요청받은 URL, Http Method(GET/POST 등), 리턴 타입, 매개변수 정보 등을 이용하여 적합한 컨트롤러를 검색한다.
+4. 해당 컨트롤러에게 처리를 요청한다.
+
+**Dispatcher Servlet 코드**
+
+시작과 끝은 DispatcherServlet 이다.
+
+doDispatch 부분에서 processDispatchResult로 들어간다.
+
+예외가 없으면(exception == null) 정상적으로 처리한다.  이번에 살펴볼 것은 예외 처리다.
+
+```java
+public class DispatcherServlet extends FrameworkServlet {
+   protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+     ....
+     ....
+     processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);
+     ....
+     .... 
+  }
+
+   private void processDispatchResult(HttpServletRequest request, HttpServletResponse response,
+			@Nullable HandlerExecutionChain mappedHandler, @Nullable ModelAndView mv,
+			@Nullable Exception exception) throws Exception {
+       ....
+	   if (exception != null) {
+			if (exception instanceof ModelAndViewDefiningException) {
+				...
+			}
+			else {
+				Object handler = (mappedHandler != null ? mappedHandler.getHandler() : null);
+				mv = processHandlerException(request, response, handler, exception);
+				errorView = (mv != null);
+			}
+		}
+      ....
+   }
+
+  protected ModelAndView processHandlerException(HttpServletRequest request, HttpServletResponse response,
+			@Nullable Object handler, Exception ex) throws Exception {
+
+		...
+
+		// Check registered HandlerExceptionResolvers...
+		ModelAndView exMv = null;
+		if (this.handlerExceptionResolvers != null) {
+			for (HandlerExceptionResolver resolver : this.handlerExceptionResolvers) {
+				exMv = resolver.resolveException(request, response, handler, ex);
+				if (exMv != null) {
+					break;
+				}
+			}
+		}
+		....
+        ....
+		throw ex;
+	}
+}
+```
+
+1. Dispatcher Servlet이 동작을 하다가
+2. 에러가 발생(exception != null) 하면,
+3. processHandlerExcpetion 으로 들어가서,
+4. HandlerExceptionResolver를 받아와 resolveException을 하게 되는데
+5. HandlerExceptionResolver에는 @ControllerAdvice 빈이 등록되어 주입됨
+
+**흐름**
+
+<img width="705" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/10b5d38f-0c4d-4b87-8174-e9196a9032ad">
+
+사용자의 요청이 들어오면 디스패처 서블릿은 요청에 알맞은 컨트롤러를 찾아 처리를 요청하는데,
+
+이때 exception이 발생하게 되면 (등록된 ControllerAdivce 빈이 주입된) HandlerExceptionResolver가 익셉션을 잡게 되고,
+
+ControllerAdvice 빈에서 익셉션을 잡아 작성한 ExceptionHandler 클래스 내부의 ExceptionHandler로 넘어가는데,
+
+ExceptionHandler는 명시된 익셉션 클래스에 속하는 익셉션을 잡는다.
+
+- 발생한 익셉션의 근본 원인 익셉션이 특정 익셉션의 인스턴스인지에 따라, 각기 다른 에러 메세지, status를 넣어주도록 작성할 수 있다.
+- 에러 메세지와 status는 별도의 열거형으로 분리하여 관리하면 체계적인 익셉션핸들링이 가능하다.
+
 ## 5. 결론
 
 - 스프링에서는 `@ExceptionHandler` `@ControllerAdvice`를 조합하면 예외처리를 깔끔하게 해결할 수 있다.

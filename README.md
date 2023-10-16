@@ -42,7 +42,7 @@
 - [System.out.println 메소드는 실무에서 절대 사용하지마라](https://github.com/Jammini/TIL/blob/master/java/System.out.println-%EC%A0%88%EB%8C%80-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80%EB%A7%88%EB%9D%BC.md)
 - [Logging에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/java/logging.md)
 - [Log4j란?](https://github.com/Jammini/TIL/blob/master/java/log4j.md)
-- [Log4j란?](https://github.com/Jammini/TIL/blob/master/java/log4j2_vs_logback.md)
+- [log4j2 vs logback](https://github.com/Jammini/TIL/blob/master/java/log4j2_vs_logback.md)
 - [자바의 리스트들은 어떻게 동작할까?(ArrayList, LinkedList)](https://github.com/Jammini/TIL/blob/master/java/arraylistandlinkedlist.md)
 - [Sync(동기)vs Async(비동기) / Blocking vs Non-blocking](https://github.com/Jammini/TIL/blob/master/java/sync_async%26blocking_nonblocking.md)
 - [자바에서 transient 는 어떤 키워드 인가?](https://github.com/Jammini/TIL/blob/master/java/transient.md)

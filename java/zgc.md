@@ -41,3 +41,6 @@ enum class ZPageType : uint8_t {
 <img width="888" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/3a0075af-3243-4c12-9a95-43ae18c3fd05">
 
 ZPage를 사용할 때 주의할 점은 large 타입의 ZPage에는 단 하나의 객체만 할당할 수 있다는 것이다. 그렇기 때문에 5MB 크기의 객체를 large 타입의 ZPage에 할당하면 large 타입 ZPage의 크기가 medium 타입 ZPage의 크기보다 작을 수 있다.
+
+### 참고
+- https://d2.naver.com/helloworld/0128759

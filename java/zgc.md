@@ -36,6 +36,15 @@ enum class ZPageType : uint8_t {
 };
 ```
 
+```java
+//  Page Type     Page Size     Object Size Limit     Object Alignment
+//  ------------------------------------------------------------------
+//  Small         2M            <= 265K               <MinObjAlignmentInBytes>
+//  Medium        32M           <= 4M                 4K
+//  Large         X*M           > 4M                  2M
+//  ------------------------------------------------------------------
+```
+
 각 타입별로 들어갈 수 있는 객체의 크기가 제한되는데 ZPage로 구분된 ZGC heap 영역의 메모리 구조를 보면 이해하기 쉽다.
 
 <img width="888" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/3a0075af-3243-4c12-9a95-43ae18c3fd05">

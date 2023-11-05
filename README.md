@@ -54,6 +54,7 @@
 - [Hashmap vs Hashtable vs ConcurrentHashMap](https://github.com/Jammini/TIL/blob/master/java/hashmap_hashtable_cuncurrenthashmap.md)
 - [GC(GarbageCollection)는 어떻게 동작하며 왜 필요할까?](https://github.com/Jammini/TIL/blob/master/java/garbagecollection.md)
 - [GC 방식에는 어떤 것들이 있을까?](https://github.com/Jammini/TIL/blob/master/java/gcsystem.md)
+- [JDK15에서 정식으로 인정된 ZGC](https://github.com/Jammini/TIL/blob/master/java/zgc.md)
 - [String은 불변이다?](https://jammini.github.io/two/)
 - [Statement vs PreparedStatement](https://github.com/Jammini/TIL/blob/master/java/statement_vs_preparedStatement.md)
 - [멀티프로세스 vs 멀티스레드](https://github.com/Jammini/TIL/blob/master/java/multiprocess_vs_multithread.md)

@@ -20,7 +20,7 @@
 
 - System.out.println은 Java개발할때 디버깅 용도로 콘솔에 출력하는 메소드 중 하나다.
 - System은 java.lang 패키지의 내장된 최종 클래스다.
-- out은 System 클래스의 정적 멤버 필드이며 PrintStream입니다.
+- out은 System 클래스의 정적 멤버 필드이며 PrintStream이다.
 - println은 PrintStream 클래스의 메서드이고, 표준 콘솔에 전달된 인자와 줄 바꿈을 출력한다.
 
 ### 3. 왜 사용해서는 안되는가?

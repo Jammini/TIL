@@ -1,4 +1,4 @@
-# properteis vs yml
+# properties vs yml
 
 ### 목차
 

@@ -65,6 +65,7 @@
 - [데코레이터패턴(Decorator Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/decoratorpattern.md)
 - [싱글톤패턴(Singletone Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/singletonpattern.md)
 - [전략패턴(Strategy Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/strategypattern.md)
+- [팩토리메소드패턴(Factorymethod Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/factorymethodpattern.md)
 - [Java 에서 싱글톤패턴 구현방식](https://github.com/Jammini/TIL/blob/master/java/singleton.md)
 - [static block 무엇이고 언제 사용할까?](https://github.com/Jammini/TIL/blob/master/java/what_is_staticblock.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)

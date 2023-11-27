@@ -1,6 +1,6 @@
 # 버전관리(Semantic Versioning)
 
-정해진 규칙없이 제각각의 방식으로 관리하지 않고 규칙을 정해서 관리하기 위해 Github의 공동창업자인 **[Tom Preston-Werner](https://tom.preston-werner.com/)** 가 제안 하였습니다.
+정해진 규칙없이 제각각의 방식으로 관리하지 않고 규칙을 정해서 관리하기 위해 Github의 공동창업자인 **[Tom Preston-Werner](https://tom.preston-werner.com/)** 가 제안 하였다.
 
 Semantic Versioning 을 예로 먼저 살펴보자.
 

@@ -50,7 +50,7 @@ JWT는 ( **.** )으로 구분된 세 부분으로 구성된다.
 
 즉, 서버와 클라이언트가 주고받는 시스템에서 실제로 **사용될 정보에 대한 내용**을 담고 있는 섹션이다.
 
-*클레임에는 Registered claims, Public claims, Private claims* 의 세 가지 유형이 있습니다 .
+*클레임에는 Registered claims, Public claims, Private claims* 의 세 가지 유형이 있다.
 
 2-1. Registed claims : 미리 정의된 클레임.
 

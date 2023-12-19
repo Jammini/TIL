@@ -3,7 +3,7 @@
 ### 목차
 
 1. [개요](#1-개요1)
-2. @[NotNull 이란?](#2-notnull-이란)
+2. [@NotNull 이란?](#2-notnull-이란)
 3. [@NotEmpty 란?](#3-notempty란)
 4. [@NotBlank 란?](#4-notblank란1)
 5. [결론](#5-결론)

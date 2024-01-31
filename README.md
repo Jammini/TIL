@@ -31,6 +31,7 @@
 - [레이어드 아키텍처(Layerd Architecture)와 테스트](https://github.com/Jammini/TIL/blob/master/spring/layerdarchitecture.md)
 - [@NotNull @NotBlank @NotEmpty를 뭐가 다를까?
 ](https://github.com/Jammini/TIL/blob/master/spring/%40NotNull_%40NotBlank_%40NotEmpty.md)
+- [Validation 책임과 범위는 어떻게 가져가야할까?](https://github.com/Jammini/TIL/blob/master/spring/validation.md)
 
 ## java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)

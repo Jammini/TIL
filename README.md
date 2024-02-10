@@ -104,3 +104,4 @@
 - [코딩으로 학습하는 리팩토링](https://github.com/Jammini/TIL/blob/master/etc/%EC%BD%94%EB%94%A9%EC%9C%BC%EB%A1%9C%20%ED%95%99%EC%8A%B5%ED%95%98%EB%8A%94%20%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81.md)
 - [라이브러리 vs 프레임워크](https://github.com/Jammini/TIL/blob/master/etc/framework_library.md)
 - [패스워드 암호화를 어떤 방식으로 하면 좋을까?](https://github.com/Jammini/TIL/blob/master/etc/password_%20encryption.md)
+- [젠킨스를 통한 CI/CD 구성하기 - CI](https://github.com/Jammini/TIL/blob/master/etc/jenkins_ci.md)

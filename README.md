@@ -105,3 +105,4 @@
 - [라이브러리 vs 프레임워크](https://github.com/Jammini/TIL/blob/master/etc/framework_library.md)
 - [패스워드 암호화를 어떤 방식으로 하면 좋을까?](https://github.com/Jammini/TIL/blob/master/etc/password_%20encryption.md)
 - [젠킨스를 통한 CI/CD 구성하기 - CI](https://github.com/Jammini/TIL/blob/master/etc/jenkins_ci.md)
+- [젠킨스를 통한 CI/CD 구성하기 - CD](https://github.com/Jammini/TIL/blob/master/etc/jenkins_cd.md)

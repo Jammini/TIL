@@ -8,6 +8,10 @@
 4. [Jenkins서버 ↔ 애플리케이션 서버 ssh 키 생성](#4-jenkins서버-↔-애플리케이션-서버-ssh-키-생성)
 5. [Jenkins ↔ Application Server SSH 원격 접속 Credentials 등록](#5-jenkins-↔-application-server-ssh-원격-접속-credentials-등록)
 6. [Jenkins ↔ Docker Registry Credentials 등록](#6-jenkins-↔-docker-registry-credentials-등록)
+7. [Dockerfile 생성하기](#7-dockerfile-생성하기)
+8. [배포 작업하기](#8-배포-작업하기)
+9. [파이프라인 스크립트 작성](#9-파이프라인-스크립트-작성)
+10. [main 브랜치 Push 및 배포 확인하기](#10-main-브랜치-push-및-배포-확인하기)
 
 ### 1. 개요
 
@@ -100,3 +104,136 @@ Username 에는 Application Server에서 사용되는 OS 계정명을 적는다.
 - ID에는 Jenkins 시스템 내에서 해당 Credentials를 구분할 ID 값을 적어준다.
 
 <img width="618" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/19ad7adb-b71f-4cea-82c2-d1f18e1d6a30">
+
+### 7. Dockerfile 생성하기
+
+도커는 이미지를 빌드할 때, DockerFile이라는 스크립트 파일 기반으로 동작한다.
+
+프로젝트 최상단에 Dokerfile을 아래 공식문서를 보고 참고하길 바란다.
+
+https://docs.docker.com/engine/reference/builder/
+
+### 8. 배포 작업하기
+
+Github에서 webhook을 이용하여 main브랜치에 push가 된다면, Jenkins 서버의 API가 호출 되도록 하였다.
+
+1. Jenkins Generic Webhook Trigger Plugin 설치
+
+<img width="707" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/282d621b-9c5c-4f62-988f-ce3cdd231b1e">
+
+2. 파이프라인을 만들고 해당 플러그인을 체크해주면 배포 작업이 유발된다.
+    
+    <img width="376" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/19488895-0722-4b19-b544-42b2533dc318">
+    
+3. Generic Webhook설정을 통해 구체적으로 어떤 상황에서 배포 작업이 유발될지 설정해준다.
+4. main 브랜치에 코드가 Push 되면 Github에서는 다음과 같은 API를 호출한다.
+
+```
+http://JENKINS_URL/generic-webhook-trigger/invoke
+```
+
+5. Github 레포지토리에 돌아가 webhook을 등록해준다.
+
+<img width="621" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/d709bbdc-9caa-4d30-8e77-2a220b17c268">
+
+이렇게 하고 저장을 해주면 Pushes 이벤트가 발생할 때 마다 해당 Payload URL을 호출한다.
+
+### 9. 파이프라인 스크립트 작성
+
+webhook 조건을 만족할 경우, 파이프라인 스크립트가 동작해서 배포 자동화 작업을 수행한다.
+
+```
+pipeline {
+  environment {
+          IMAGE_NAME = "이미지 이름"
+          REGISTRY_CONTAINER = "레지스트리 컨테이너 endpoint"
+          REGISTRY_CREDENTIAL = "젠킨스 <-> 도커 Credentials ID값"
+          SSH_CONNECTION_IP = "계정명@Application서버IP"
+          SSH_CONNECTION_CREDENTIAL = "젠킨스 <-> Application Server SSH Credentials ID"
+      }
+
+    agent any
+
+    stages {
+        // Checkout Git repository
+        stage('Checkout Git') {
+            steps {
+                git branch: 'main',
+                credentialsId: '02247ad5-1f10-471b-ab72-6d95b8d2d293D',
+                url: 'https://github.com/f-lab-edu/auctionHub.git'
+            }
+        }
+
+        // Build repository
+        stage('Build') {
+            steps {
+                sh './gradlew clean bootJar'
+                echo 'Build repository Success!'
+            }
+        }
+
+        // Test
+        stage('Test') {
+            steps {
+                // sh './gradlew test'
+                echo 'Test Success!'
+            }
+        }
+
+        // 도커 이미지 빌드
+        stage('Build Container Image') {
+            steps {
+                script {
+                    image = docker.build("${REGISTRY_CONTAINER}/${IMAGE_NAME}")
+                }
+            }
+        }
+
+        // 생성된 도커 이미지를 네이버 클라우드 Docker Registry에 등록
+        stage('Push Container Image') {
+            steps {
+                script {
+                    docker.withRegistry("https://${REGISTRY_CONTAINER}", REGISTRY_CREDENTIAL) {
+                        image.push("${env.BUILD_NUMBER}")
+                        image.push("latest")
+                        image
+                    }
+                }
+            }
+        }
+
+        // 애플리케이션 서버가 도커 이미지를 다운받고 실행하도록 제어
+        stage('Server run') {
+            steps {
+                sshagent(credentials: [SSH_CONNECTION_CREDENTIAL]) {
+                    sh "ssh -o StrictHostKeyChecking=no ${SSH_CONNECTION_IP} 'whoami'"
+                    // 최신 컨테이너 삭제
+                    sh "ssh -o StrictHostKeyChecking=no ${SSH_CONNECTION_IP} 'docker rm -f ${IMAGE_NAME}'"
+                    // 최신 이미지 삭제
+                    sh "ssh -o StrictHostKeyChecking=no ${SSH_CONNECTION_IP} 'docker rmi -f ${REGISTRY_CONTAINER}/${IMAGE_NAME}:latest'"
+                    // 최신 이미지 PULL
+                    sh "ssh -o StrictHostKeyChecking=no ${SSH_CONNECTION_IP} 'docker pull ${REGISTRY_CONTAINER}/${IMAGE_NAME}:latest'"
+                    // 이미지 확인
+                    sh "ssh -o StrictHostKeyChecking=no ${SSH_CONNECTION_IP} 'docker images'"
+                    // 최신 이미지 RUN
+                    sh "ssh -o StrictHostKeyChecking=no ${SSH_CONNECTION_IP} 'docker run -d --name ${IMAGE_NAME} -p 8080:8080 ${REGISTRY_CONTAINER}/${IMAGE_NAME}:latest'"
+                    // 컨테이너 확인
+                    sh "ssh -o StrictHostKeyChecking=no ${SSH_CONNECTION_IP} 'docker ps'"
+                }
+            }
+        }
+    }
+}
+```
+
+### 10. main 브랜치 Push 및 배포 확인하기
+
+<img width="705" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/5d1ce4c2-2637-43f2-9fb3-0ed3718a222e">
+
+
+### 참고
+- https://guide.ncloud-docs.com/docs/containerregistry-start
+- https://docs.docker.com/engine/reference/builder/
+- https://cookie-dev.tistory.com/21
+- [https://velog.io/@doyuni/Jenkins-NAVER-Cloud-Platform-Docker로-CICD-무중단-배포-환경-구축하기-2편-7rk4w9eynh](https://velog.io/@doyuni/Jenkins-NAVER-Cloud-Platform-Docker%EB%A1%9C-CICD-%EB%AC%B4%EC%A4%91%EB%8B%A8-%EB%B0%B0%ED%8F%AC-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0-2%ED%8E%B8-7rk4w9eynh)
+- [https://devbksheen.tistory.com/entry/Jenkins를-이용한-Docker-컨테이너-자동-배포하기Blue-Ocean-NCP](https://devbksheen.tistory.com/entry/Jenkins%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0Blue-Ocean-NCP)

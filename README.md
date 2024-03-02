@@ -33,7 +33,7 @@
 ](https://github.com/Jammini/TIL/blob/master/spring/%40NotNull_%40NotBlank_%40NotEmpty.md)
 - [Validation 책임과 범위는 어떻게 가져가야할까?](https://github.com/Jammini/TIL/blob/master/spring/validation.md)
 
-## java
+## Java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)
 - [Short-circuit이 런타임 오류를 방지해준다?](https://github.com/Jammini/TIL/blob/master/java/shortcircuit.md)
 - [해시충돌 발생시 JAVA에서는 어떻게 처리할까?](https://github.com/Jammini/TIL/blob/master/java/%20hashcollision.md)
@@ -96,7 +96,7 @@
 - [테이블마다 id 칼럼을 PK로 사용한 이유는 무엇일까?](https://github.com/Jammini/TIL/blob/master/db/table_id_pk.md)
 - [MySQL 아키텍쳐](https://github.com/Jammini/TIL/blob/master/db/mysql_architecture.md)
 
-## book
+## Book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)
 
 ## Etc.
@@ -108,3 +108,4 @@
 - [젠킨스를 통한 CI/CD 구성하기 - CI](https://github.com/Jammini/TIL/blob/master/etc/jenkins_ci.md)
 - [젠킨스를 통한 CI/CD 구성하기 - CD](https://github.com/Jammini/TIL/blob/master/etc/jenkins_cd.md)
 - [Scale out시 세션불일치 방지를 위한 Redis 선정과정](https://github.com/Jammini/TIL/blob/master/etc/redis_vs_memcached.md)
+- [Auditing을 고려한 테이블 설계 과정](https://github.com/Jammini/TIL/blob/master/db/auditing_for_table.md)

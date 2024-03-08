@@ -98,6 +98,7 @@
 
 ## Book
 - [Think Data Structures - Allen B. Downey](https://rust-caboc-6d6.notion.site/2700bb3d625247128b7be45b32c76b3a)
+- [MySQL 성능 최적화](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization.md)
 
 ## Etc.
 - [명명규칙](https://github.com/Jammini/TIL/blob/master/etc/%EB%AA%85%EB%AA%85%EA%B7%9C%EC%B9%99.md)

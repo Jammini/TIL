@@ -71,11 +71,22 @@ Redis와 Memcached는 둘 다 굉장히 유사하다고 생각했을것이다.
 
 <img width="706" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/af331267-44e7-4bad-92ba-ecb78d2a74c7">
 
+<img width="706" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/fcf6d580-b94a-47b7-ae8a-8d63740de8bc">
+
+
+해당 표애서 볼 수 있듯이 Mecached의 경우 Write 연산에 있어서, Redis보다 좋은 성능을 보임을 알 수 있다.
+
+하지만, Read연산에 있어서는 Redis가 더 좋은 성능을 보인다.
+
+이를 비교해보았을 때, Redis가 세션을 저장하는데 더 적합하다는 점을 알 수 있다.
+
+세션 관련 작업의 경우, 쓰기 연산보다는 읽기 연산이 압도적으로 높은 작업이기 때문이다.
+
+표에 아래 그래프를 보면 Redis가 Read/Write에 있어서 메모리를 더 효율적으로 사용하는 것을 볼 수 있다.
+
 ### 5. 결론
 
-- Memcached는 단순성을 위해 설계된 반면, Redis는 광범위한 사용 사례에 효과적인 풍부한 기능을 제공한다.
-- Memcached는 간단한 문자열 데이터만 처리하는 반면, Rdis는 다양한 데이터 타입을 지원한다.
-- 위와 같은 이유로 프로잭트 진행하는데 Redis 선정했던 기준을 살펴보았다.
+- 위와 같은 이유를 종합한 결과, 쓰기 성능에서는 Memcached가 앞서지만 메모리 사용효율과 처리속도, 그리고 이외에 다양한 자료구조 지원과 아키텍쳐 지원을 모두 고려한다면 Redis가 상태적으로 더 나은 선택임을 알 수 있다.
 
 ### 참고
 
@@ -83,3 +94,4 @@ Redis와 Memcached는 둘 다 굉장히 유사하다고 생각했을것이다.
 - https://ittrue.tistory.com/317
 - https://aws.amazon.com/ko/memcached/
 - https://aws.amazon.com/ko/elasticache/redis-vs-memcached/
+- [https://inpa.tistory.com/entry/REDIS-📚-개념-소개-사용처-캐시-세션-한눈에-쏙-정리?category=918728#redis-활용하기---캐시cache](https://inpa.tistory.com/entry/REDIS-%F0%9F%93%9A-%EA%B0%9C%EB%85%90-%EC%86%8C%EA%B0%9C-%EC%82%AC%EC%9A%A9%EC%B2%98-%EC%BA%90%EC%8B%9C-%EC%84%B8%EC%85%98-%ED%95%9C%EB%88%88%EC%97%90-%EC%8F%99-%EC%A0%95%EB%A6%AC?category=918728#redis-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0---%EC%BA%90%EC%8B%9Ccache)

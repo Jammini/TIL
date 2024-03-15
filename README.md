@@ -110,3 +110,4 @@
 - [젠킨스를 통한 CI/CD 구성하기 - CD](https://github.com/Jammini/TIL/blob/master/etc/jenkins_cd.md)
 - [Scale out시 세션불일치 방지를 위한 Redis 선정과정](https://github.com/Jammini/TIL/blob/master/etc/redis_vs_memcached.md)
 - [Auditing을 고려한 테이블 설계 과정](https://github.com/Jammini/TIL/blob/master/db/auditing_for_table.md)
+- [Redis 캐시 적용으로 성능 개선하기](https://github.com/Jammini/TIL/blob/master/etc/redis_ngrinder.md)

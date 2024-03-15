@@ -60,11 +60,11 @@ public Integer findHighestPrice(Long productId) {
 
 nGrinder를 통해 수행된 캐시 사용 전/후 수행된 테스트 결과를 비교하고 분석해보자.
 
-- 캐시 사용전
+- 캐시 사용 전
 
 <img width="706" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/7762ac2a-bf84-44a8-987d-725c643e3341">
 
-- 캐시 사용후
+- 캐시 사용 후
 
 <img width="703" alt="image" src="https://github.com/Jammini/TIL/assets/59176149/557afa43-f1d7-44c5-a97d-9ddd752633df">
 

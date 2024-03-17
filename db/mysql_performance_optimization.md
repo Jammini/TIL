@@ -40,3 +40,9 @@
 [5장 서버 설정 최적화](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization5.md)
 
 [6장 스키마 설계와 관리](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization6.md)
+
+### 5회차 - 2024/03/17
+
+[7장 고성능을 위한 인덱싱](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization7.md)
+
+[8장 쿼리 성능 최적화](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization8.md)

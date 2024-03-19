@@ -112,4 +112,5 @@
 - [Auditing을 고려한 테이블 설계 과정](https://github.com/Jammini/TIL/blob/master/db/auditing_for_table.md)
 - [Redis 캐시 적용으로 성능 개선하기](https://github.com/Jammini/TIL/blob/master/etc/redis_ngrinder.md)
 - [RabbitMQ 메세지큐 적용으로 성능 개선하기](https://github.com/Jammini/TIL/blob/master/etc/rabbitmq_ngrinder.md)
+- [대용량 트래픽 처리를 위한 경매 기능 최적화](https://github.com/Jammini/TIL/blob/master/etc/optimizing_auctionhub.md)
 

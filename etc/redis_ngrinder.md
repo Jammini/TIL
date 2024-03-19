@@ -15,7 +15,7 @@
 
 최고 입찰액을 가져오는 시간을 줄이고자 DB조회 대신 Redis에서 값을 빠르게 가져와서 응답하고자 하였고
 
-ngrinder로 테스트를 통해 성능이 얼마나 차이나는지 비교해 보자.
+nGrinder로 테스트를 통해 성능이 얼마나 차이나는지 비교해 보자.
 
 ### 2. 캐시(Cache)란?
 
@@ -58,7 +58,7 @@ public Integer findHighestPrice(Long productId) {
 
 ### 5. nGrinder 성능 테스트
 
-nGrinder를 통해 수행된 캐시 사용 전/후 수행된 테스트 결과를 비교하고 분석해보자.
+nGrinder를 통해 캐시 사용 전/후 수행된 테스트 결과를 비교하고 분석해보자.
 
 - 캐시 사용 전
 

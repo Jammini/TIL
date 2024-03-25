@@ -46,3 +46,9 @@
 [7장 고성능을 위한 인덱싱](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization7.md)
 
 [8장 쿼리 성능 최적화](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization8.md)
+
+### 6회차 - 2024/03/22
+
+[9장 복제](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization9.md)
+
+[10장 백업 및 복구](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization10.md)

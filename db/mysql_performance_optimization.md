@@ -56,3 +56,5 @@
 ### 7회차 - 2024/03/29
 
 [11장 MySQL 스케일링](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization11.md)
+
+[12장 클라우드에서의 MySQL](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization12.md)

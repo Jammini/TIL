@@ -53,7 +53,7 @@
 
 [10장 백업 및 복구](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization10.md)
 
-### 7회차 - 2024/03/29
+### 7회차 - 2024/03/29(마지막 회차)
 
 [11장 MySQL 스케일링](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization11.md)
 

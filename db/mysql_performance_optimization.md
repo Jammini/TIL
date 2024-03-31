@@ -58,3 +58,11 @@
 [11장 MySQL 스케일링](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization11.md)
 
 [12장 클라우드에서의 MySQL](https://github.com/Jammini/TIL/blob/master/db/mysql_performance_optimization12.md)
+
+### 회고
+
+스터디를 진행하면서 MySQL에 대해 전반적인 학습을 할 수 있었다. 아직 현업에서 MySQL을 사용해보지 못하여 이해 못한 내용들도 꽤나 많지만 스터디 하신 분들에게 궁금한 점을 물어보며 궁금증을 조금씩 해결해나갔다.
+
+MySQL 또는 다른 데이터베이스를 사용하면서 데이터를 읽고 쓰고 수정하고만 생각했지 성능적으로 복제, 복구 등을 생각하지 못했었다. 설계를 할때나 데이터베이스를 사용할때 이런점을 꼭 고려해야 한다고 생각한다.
+
+문제가 생기기전에 사전에 예방하는게 중요하다. 그런데도 불구하고 문제가 발생하면, 당면한 문제를 해결하기 위해 적합한 전략을 고민하고 해결해야한다. 모든 선택에 트레이드오프를 고려해가며 최적의 문제를 찾아내도록 하자.

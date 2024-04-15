@@ -10,3 +10,8 @@
 
 [4장 처리율 제한 장치의 설계](https://github.com/Jammini/TIL/blob/master/spring/foundation_for_large-scale_system_design4.md)
 
+## part2
+
+[1장 근접성 서비스](https://github.com/Jammini/TIL/blob/master/spring/foundation_for_large-scale_system_design_part2_1.md)
+
+[2장 주변 친구](https://github.com/Jammini/TIL/blob/master/spring/foundation_for_large-scale_system_design_part2_2.md)

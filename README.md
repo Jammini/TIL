@@ -116,3 +116,4 @@
 - [RabbitMQ 메세지큐 적용으로 성능 개선하기](https://github.com/Jammini/TIL/blob/master/etc/rabbitmq_ngrinder.md)
 - [대용량 트래픽 처리를 위한 경매 기능 최적화](https://github.com/Jammini/TIL/blob/master/etc/optimizing_auctionhub.md)
 - [브라우저에 URL을 입력하면 어떤 일이 벌어질까?](https://github.com/Jammini/TIL/blob/master/etc/browser_url.md)
+- [카프카(kafka) 조금 아는척하기 - 1](https://github.com/Jammini/TIL/blob/master/etc/kafka1.md)

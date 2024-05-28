@@ -118,3 +118,4 @@
 - [브라우저에 URL을 입력하면 어떤 일이 벌어질까?](https://github.com/Jammini/TIL/blob/master/etc/browser_url.md)
 - [카프카(kafka) 조금 아는척하기 - 1](https://github.com/Jammini/TIL/blob/master/etc/kafka1.md)
 - [카프카(kafka) 조금 아는척하기 - 2](https://github.com/Jammini/TIL/blob/master/etc/kafka2.md)
+- [카프카(kafka) 조금 아는척하기 - 3](https://github.com/Jammini/TIL/blob/master/etc/kafka3.md)

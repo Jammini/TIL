@@ -70,6 +70,7 @@
 - [팩토리메소드패턴(Factorymethod Pattern)이란?](https://github.com/Jammini/TIL/blob/master/java/factorymethodpattern.md)
 - [Java 에서 싱글톤패턴 구현방식](https://github.com/Jammini/TIL/blob/master/java/singleton.md)
 - [static block 무엇이고 언제 사용할까?](https://github.com/Jammini/TIL/blob/master/java/what_is_staticblock.md)
+- [어노테이션을 사용하는 이유와 효과에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/java/annotation.md)
 - [자바의신 vol1](https://github.com/Jammini/TIL/blob/master/java/godofjava.md)
 - [자바의신 vol2](https://github.com/Jammini/TIL/blob/master/java/godofjava2.md)
 

@@ -22,6 +22,7 @@
 - [스프링의 등장과 스프링 부트](https://github.com/Jammini/TIL/blob/master/spring/spring_springboot.md)
 - [객체의 종류](https://github.com/Jammini/TIL/blob/master/spring/typeofobject.md)
 - [@Transactional에 대해서 알아보자](https://github.com/Jammini/TIL/blob/master/spring/transactional.md)
+- [스프링 트랜잭션 전파에 대해 알아보자](https://github.com/Jammini/TIL/blob/master/spring/transaction_propagation.md)
 - [@Transactional을 사용할때 어떤 점을 주의할까?](https://github.com/Jammini/TIL/blob/master/spring/%40Transaction_%20concentrate.md)
 - [Junit5은 무엇일까?](https://github.com/Jammini/TIL/blob/master/spring/JUnit5.md)
 - [객체의 결합도와 응집도](https://github.com/Jammini/TIL/blob/master/spring/coupling_cohesion.md)

@@ -128,3 +128,4 @@
 - [카프카(kafka) 조금 아는척하기 - 2](https://github.com/Jammini/TIL/blob/master/etc/kafka2.md)
 - [카프카(kafka) 조금 아는척하기 - 3](https://github.com/Jammini/TIL/blob/master/etc/kafka3.md)
 - [[IntelliJ] 자바 구글 코딩 컨벤션 적용하기](https://github.com/Jammini/TIL/blob/master/etc/convention.md)
+- [Github 저장소에 Repository Rule 제약하기](https://github.com/Jammini/TIL/blob/master/etc/github_repository_rule.md)

@@ -48,8 +48,8 @@ At least 2 approving reviews are required by reviewers with write access.
 
 위와 같이 현재 approval이 1명 있지만 최소 2명의 approving review가 리뷰어에게 필요하다고 안내해주고 있으며 Merge pull request 버튼이 활성화 되지 않은 상태인 것을 확인할 수 있다.
 
+<img width="702" alt="image" src="https://github.com/user-attachments/assets/adb63c7c-3539-4c4f-9863-920345c11e63">
 
-
-이처럼, 최소 2명에게 받아야만 Merge pull request가 활성 될 수 있는 것을 볼 수 있다.
+이처럼, 최소 2명에게 받아야만 Merge pull request가 활성화 되어 있는 것을 볼 수 있다.
 
 추가적으로, 저장소 규칙을 더 알아보고 싶다면 Github에서 제공한 [저장소규칙](https://github.blog/news-insights/product-news/github-repository-rules-are-now-generally-available/)을 확인해보자.

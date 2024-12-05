@@ -128,5 +128,6 @@
 - [카프카(kafka) 조금 아는척하기 - 2](https://github.com/Jammini/TIL/blob/master/etc/kafka2.md)
 - [카프카(kafka) 조금 아는척하기 - 3](https://github.com/Jammini/TIL/blob/master/etc/kafka3.md)
 - [[IntelliJ] 자바 구글 코딩 컨벤션 적용하기](https://github.com/Jammini/TIL/blob/master/etc/convention.md)
+- [[IntelliJ] Dependency Analyzer & Dependency Diagram 의존성 확인하기](https://github.com/Jammini/TIL/blob/master/etc/dependency_analyzer_diagram.md)
 - [Github 저장소에 Repository Rule 제약하기](https://github.com/Jammini/TIL/blob/master/etc/github_repository_rule.md)
 - [파일마다  EOL(EndOfLine) 넣어야 하는 이유는 무엇일까?](https://github.com/Jammini/TIL/blob/master/etc/why_input_eol.md)

@@ -12,13 +12,13 @@
 DTO(Data Transfer Object)는 레이어 계층 간 데이터를 전송하는데 사용되는 객체로 많은 사람들이 사용하고 있다. 이유는 다음과 같이 간단하다.
 
 1. DTO를 이용해 각 계층이 필요한 데이터만 전달 받아 처리할 수 있다.
-2. 시스템으 결합도를 낮추고 유지 보수성을 향상시킨다.
+2. 시스템의 결합도를 낮추고 유지보수성을 향상시킨다.
 
-따라서, “DTO를 사용할 때 어느 레이어까지 사용하는 것이 좋을지”에 대해서는 프로젝트 과정에서 반드시 고려해야 할 요소라고 생각한다. 이를 통해 개발자는 보다 유연하고 확장 가능한 시스템을 구축하고 더 나은 서비스를 제공해 줄 것이다.
+따라서, “DTO를 사용할 때 어느 레이어까지 사용하는 것이 좋을지”에 대해서는 프로젝트 과정에서 반드시 고려해야 할 요소이다. 이를 통해 개발자는 유연하고 확장 가능한 시스템을 구축하고 더 나은 서비스를 제공해 줄 것이다.
 
 이번에 게시글을 작성하면서 **DTO에 대한 레이어 범위를 잡아 정리하고 왜 그렇게 기준을 잡았는지 대해**서도 작성해보려한다.
 
-### 2. [AS-IS]  Controller ↔ Service 레이어간 동일한 DTO
+### 2. [AS-IS] Controller ↔ Service 레이어간 동일한 DTO
 
 ![image](https://github.com/user-attachments/assets/44a641e1-aeb0-4d56-8d7c-2ea6b0d0059c)
 
@@ -34,7 +34,7 @@ DTO는 `@RequestBody` 를 통해  Controller Layer에 전달되고 전달된 DTO
 
 ![image](https://github.com/user-attachments/assets/70f0f780-d22f-4bd8-a909-0ba7c485a744)
 
-Controller Layeer에서 보낸 DTO를 Service Layer에서 그대로 받아서 사용하였다.
+Controller Layer에서 보낸 DTO를 Service Layer에서 그대로 받아서 사용하였다.
 
 이 방법은 가장 직관적이면서 편한 방법이다.
 
@@ -48,7 +48,7 @@ Controller와 Service는 이 2개의 Layer간 DTO를 통해서 의존 관계가 
 
 기본적으로 Layered architecture는 상위레이어가 하위레이어를 몰라야 한다.
 
-### 3. [To-Be]  Controller ↔ Service 레이어간 각각의 DTO
+### 3. [To-Be] Controller ↔ Service 레이어간 각각의 DTO
 
 그래서 나는 다음과 같이 변경하여 작성하였다.
 
@@ -70,13 +70,13 @@ DTO는 `@RequestBody` 를 통해  Controller Layer에 전달되고 전달된 DTO
 
 이 부분이 사실 귀찮고 번거로운 작업이라는 점은 분명하다. 하지만 불편함에도 이점이 확실하다고 생각했다.
 
-만약, 규모가 커져서 Controller와 Service의 Layer의 모듈을 분리해야한다면 Service Layer에서 Controller DTO를 계속 가지고 있어서 분리할 때 번거롭게 될 수 있다.
+만약, 규모가 커져서 Controller와 Service의 Layer의 모듈을 분리해야한다면 Service Layer에서 Controller DTO를 계속 가지고 있으므로 분리할 때 번거로워진다.
 
 Cotnroller DTO를 통해 validation을 체크 해주는 역할을 확실히 분리해주고 Service에서는 비즈니스 로직에 집중해서 작성할 수 있게 된다.
 
 ![image](https://github.com/user-attachments/assets/456fd0d9-27e9-45bf-a7c0-518d129bb523)
 
-또한, Service DTO 에서는 `@NotBlank` 와 같은 검증을 Controller에서 다 해주었기 때문에 쓸필요가 없어진다.
+또한, Service DTO 에서는 `@NotBlank` 와 같은 검증을 Controller에서 다 해주었기 때문에 쓸 필요가 없어진다.
 
 Service의 모듈을 분리하더라도 Controller DTO를 분리했기 때문에 `spring-boot-starter-validation` 를 가져갈 필요도 사라지는 효과도 있다.
 

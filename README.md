@@ -36,6 +36,7 @@
 - [Validation 책임과 범위는 어떻게 가져가야할까?](https://github.com/Jammini/TIL/blob/master/spring/validation.md)
 - [Kafka vs RabbitMQ vs Redis](https://github.com/Jammini/TIL/blob/master/spring/kafka_vs_rabbitmq_vs_redis.md)
 - [JPA를 사용하는 이유가 무엇일까?](https://github.com/Jammini/TIL/blob/master/spring/why_use_jpa.md)
+- [DTO는 어느 레이어까지 사용하는 것이 좋을까?](https://github.com/Jammini/TIL/blob/master/spring/dto_layer.md)
 
 ## Java
 - [더, 자바, 코드를 조작하는 다양한 방법](https://github.com/Jammini/TIL/blob/master/java/%EB%8D%94-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A1%B0%EC%9E%91%ED%95%98%EB%8A%94-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%B0%A9%EB%B2%95.md)

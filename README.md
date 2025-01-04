@@ -103,6 +103,7 @@
 - [테이블마다 id 칼럼을 PK로 사용한 이유는 무엇일까?](https://github.com/Jammini/TIL/blob/master/db/table_id_pk.md)
 - [MySQL 아키텍쳐](https://github.com/Jammini/TIL/blob/master/db/mysql_architecture.md)
 - [SQL Mapper vs ORM 기술](https://github.com/Jammini/TIL/blob/master/db/sqlmapper_vs_orm.md)
+- [운영환경에서 안전하게 테이블 칼럼을 추가하려면 어떤 방법이 좋을까?](https://github.com/Jammini/TIL/blob/master/db/add_table_column.md)
 
 
 ## Book

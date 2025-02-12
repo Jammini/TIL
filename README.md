@@ -133,3 +133,4 @@
 - [[IntelliJ] Dependency Analyzer & Dependency Diagram 의존성 확인하기](https://github.com/Jammini/TIL/blob/master/etc/dependency_analyzer_diagram.md)
 - [Github 저장소에 Repository Rule 제약하기](https://github.com/Jammini/TIL/blob/master/etc/github_repository_rule.md)
 - [파일마다  EOL(EndOfLine) 넣어야 하는 이유는 무엇일까?](https://github.com/Jammini/TIL/blob/master/etc/why_input_eol.md)
+- [Github Actions으로 Sonar Cloud와 Slack 알림 설정하기](https://github.com/Jammini/TIL/blob/master/etc/githubactions_sonarcloud.md)

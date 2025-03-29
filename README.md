@@ -135,3 +135,4 @@
 - [파일마다  EOL(EndOfLine) 넣어야 하는 이유는 무엇일까?](https://github.com/Jammini/TIL/blob/master/etc/why_input_eol.md)
 - [Github Actions으로 Sonar Cloud와 Slack 알림 설정하기](https://github.com/Jammini/TIL/blob/master/etc/githubactions_sonarcloud.md)
 - [댓글 알고리즘으로 무한 depth 구현하기](https://github.com/Jammini/TIL/blob/master/etc/depth_comment.md)
+- [좋아요 수를 이용해 동시성 처리 비교하기](https://github.com/Jammini/TIL/blob/master/etc/like_concurrency_compare.md)

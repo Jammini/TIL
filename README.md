@@ -136,3 +136,4 @@
 - [Github Actions으로 Sonar Cloud와 Slack 알림 설정하기](https://github.com/Jammini/TIL/blob/master/etc/githubactions_sonarcloud.md)
 - [댓글 알고리즘으로 무한 depth 구현하기](https://github.com/Jammini/TIL/blob/master/etc/depth_comment.md)
 - [좋아요 수를 이용해 동시성 처리 비교하기](https://github.com/Jammini/TIL/blob/master/etc/like_concurrency_compare.md)
+- [단축 URL을 사용하는 이유는 무엇이고 구현해보자](https://github.com/Jammini/TIL/blob/master/etc/shorten_url.md)

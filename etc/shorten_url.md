@@ -59,7 +59,7 @@
 
 또한, 단축 URL을 통해 몇 번 redirect 가 되었는지 통계를 낼 수 있다.
 
-### 4. 구현하기
+### 4-1. 구현하기
 
 먼저, 예시를 보자.
 
@@ -102,6 +102,62 @@ base56을 방식을 이용하였고 숫자로 표현할 수 있는 1이나 0이 
 사용자가 단축된 URL로 요청하면 원래의 URL로 리다이렉트(redircet)되어야 한다.
 
 또한, 원래의 URL로 다시 단축 URL을 생성해도 항상 새로운 단축 URL이 생성되어야 하며 기존에 생성되었던 단축 URL도 여전히 동작되어야 한다.
+
+### 4-2. 구현하기2
+
+<img width="700" alt="Image" src="https://github.com/user-attachments/assets/9539e551-b912-444e-96d9-e8bb2ec4abdf" />
+
+4-1 구현을 하고 코드리뷰를 받은 결과, 위 사진과 같은 리뷰가 달렸다. 겹칠 확률을 생각해 예외를 내보내고 있지만 더 좋은 방법이 있는지 생각해보았다.
+
+처음 드는 생각으로는 unique한 결과를 내려면 shorturl을 만드는 **시간을 이용해 이것을 encode하면 되겠다는 생각을했다.**
+하지만 0.0001초라도 동시에 수많은 요청이 온다고 한다면 같은 시간을 encode 할 수도 있을것이다. 그러면 unique한 값이면서 간단한게 무엇이 있을까?
+
+**바로 id 값을 이용하는 것이다.**
+
+id 값이 auto increament되기 때문에 이 id 값을 encode해서 내보낸다면 중복된 key값이 줄어들 것이라 판단했다.
+
+1. 데이터 클래스 정의
+
+데이터 클래스는 동일하게 진행하였다.
+
+| orginalUrl | 원래 URL |
+| --- | --- |
+| shortenUrlKey | 단축 URL Key |
+| redirectCount | 리다이텍트 카운트 |
+
+2. 키 생성 알고리즘 구현
+
+키를 생성하는 알고리즘은 기존과 달리 연산 속도가 빠른 bit연산을 이용했다.
+
+```java
+public static String generate(long id) {
+    int RANDOM_BITS = 16;
+    SecureRandom RANDOM = new SecureRandom();
+
+    int randomPart = RANDOM.nextInt(1 << RANDOM_BITS); // 65536 - 1
+    long composite = (id << RANDOM_BITS) | randomPart;
+    return encodeBase62(composite);
+}
+
+private static String encodeBase62(long num) {
+    char[] ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
+    int BASE = ALPHABET.length;
+
+    if (num == 0) {
+        return String.valueOf(ALPHABET[0]);
+    }
+    StringBuilder sb = new StringBuilder();
+    while (num > 0) {
+        sb.append(ALPHABET[(int)(num % BASE)]);
+        num /= BASE;
+    }
+    return sb.reverse().toString();
+}
+```
+
+간단하게 코드를 살펴보면 RANDOM_BITS를 16으로 지정해 (1 * 2^16) - 1 = 65535 에 개수를 랜덤으로 뽑은 다음 unique한 id값을 시프트 시켜 랜덤으로 뽑은 수를 or 연산한다.
+
+이 값을 base62로 바꿔서 key값을 생성하는 알고리즘이다.
 
 ### 5. 결론
 

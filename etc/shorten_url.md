@@ -127,37 +127,63 @@ id 값이 auto increament되기 때문에 이 id 값을 encode해서 내보낸�
 
 2. 키 생성 알고리즘 구현
 
-키를 생성하는 알고리즘은 기존과 달리 연산 속도가 빠른 bit연산을 이용했다.
-
 ```java
-public static String generate(long id) {
-    int RANDOM_BITS = 16;
-    SecureRandom RANDOM = new SecureRandom();
+public class DefaultBase62 {
 
-    int randomPart = RANDOM.nextInt(1 << RANDOM_BITS); // 65536 - 1
-    long composite = (id << RANDOM_BITS) | randomPart;
-    return encodeBase62(composite);
-}
+    private static final String BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final int BASE = BASE62.length();
 
-private static String encodeBase62(long num) {
-    char[] ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
-    int BASE = ALPHABET.length;
-
-    if (num == 0) {
-        return String.valueOf(ALPHABET[0]);
+    @Override
+    public String encode(long num) {
+        StringBuilder encoded = new StringBuilder();
+        while (num > 0) {
+            encoded.append(BASE62.charAt((int) (num % BASE)));
+            num /= BASE;
+        }
+        return encoded.reverse().toString();
     }
-    StringBuilder sb = new StringBuilder();
-    while (num > 0) {
-        sb.append(ALPHABET[(int)(num % BASE)]);
-        num /= BASE;
+
+    @Override
+    public long decode(String base62) {
+        long decoded = 0;
+        for (int i = 0; i < base62.length(); i++) {
+            decoded = decoded * BASE + BASE62.indexOf(base62.charAt(i));
+        }
+        return decoded;
     }
-    return sb.reverse().toString();
 }
 ```
 
-간단하게 코드를 살펴보면 RANDOM_BITS를 16으로 지정해 (1 * 2^16) - 1 = 65535 에 개수를 랜덤으로 뽑은 다음 unique한 id값을 시프트 시켜 랜덤으로 뽑은 수를 or 연산한다.
+id 값을 Base62로 변경한다. 현재는 id값을 단순히 Base62로 encode하지만 유튜브나 네이버와 같이 일관된 단축 URL 키를 만들고 싶다면 문자를 추가해 형태를 맞추면 될 것이다.
 
-이 값을 base62로 바꿔서 key값을 생성하는 알고리즘이다.
+3. 플로우
+
+<img width="697" alt="Image" src="https://github.com/user-attachments/assets/f02cfb5b-0a94-4649-97e0-576e46dac09c" />
+
+플로우는 다음과 같다. 첫번째 플로우와 가장 큰 차이는 바로 Redis 캐시를 이용했다.
+
+처음에는 단축 URL이 들어왔을때 중복된shortUrlKey 값이 존재하는지 DB를 통해 조회하였다.
+
+하지만, URL이 1억개 있다고 하면 정상적으로 동작 할까? DB에 과부하가 걸려 성능에 굉장히 좋지 못할것이다. 그것을 가정하고 Redis 캐시를 이용하였다.
+
+또한, redirectCount도 마찬가지로 DB를 통해 바로 count를 올리는게 아니고 스케줄러를 이용해 시간에 맞춰 count 값을 더해주어 저장해주었다.
+
+정리하자면 다음과 같다.
+
+1. **캐시 조회**
+    - `cache.getByOriginalUrl(originalUrl)` 로 먼저 Redis에서 확인하여 있으면 바로 반환
+2. **DB 조회**
+    - 캐시에 없을 때만 DB를 호출해 조회
+    - DB에 있으면 캐시를 채우고 반환
+3. **신규 생성**
+    - DB에 완전히 없는 URL이면 ID 기반 키 생성 후 엔티티에 저장
+    - 생성된 키와 원본 URL을 캐시에 양방향으로 저장
+
+그렇다면 이렇게 하면 **장점은 무엇일까?**
+
+대다수의 재요청을 캐시를 통해서만 확인하기에 성능적으로 매우 우수한다. 왜냐하면 DB 조회를 할 필요 없기 때문이다.
+
+즉, 캐시 미스 시에만 DB를 타므로 전체 성능이 크게 올라갈 것이다.
 
 ### 5. 결론
 
